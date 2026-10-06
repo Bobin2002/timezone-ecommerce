@@ -1,0 +1,496 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}TimeZone | Premium Watches{% endblock %}
+
+{% block content %}
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span>Premium Watch Collection</span>
+
+        <h1>
+            Time That
+            <strong>Defines You.</strong>
+        </h1>
+
+        <p>
+            Discover premium watches crafted for those who
+            appreciate timeless design, precision and style.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="{% url 'watches' %}" class="hero-btn">
+                Shop Collection
+            </a>
+
+            <a href="#featured" class="hero-btn secondary">
+                Explore
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO WATCH IMAGE -->
+
+    <div class="hero-image">
+
+        {% if products %}
+
+            {% with product=products.0 %}
+
+                {% if product.image %}
+
+                    <img
+                        src="{{ product.image.url }}"
+                        alt="{{ product.name }}"
+                    >
+
+                {% else %}
+
+                    <div style="
+                        font-size:180px;
+                        text-align:center;
+                    ">
+                        ⌚
+                    </div>
+
+                {% endif %}
+
+            {% endwith %}
+
+        {% else %}
+
+            <div style="
+                font-size:180px;
+                text-align:center;
+            ">
+                ⌚
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FEATURED PRODUCTS
+===================================================== -->
+
+<section class="featured" id="featured">
+
+    <div class="section-title">
+
+        <span>Our Collection</span>
+
+        <h2>Featured Watches</h2>
+
+        <p>
+            Discover our carefully selected collection
+            of premium watches.
+        </p>
+
+    </div>
+
+
+    <div class="products-grid">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            <!-- Product Image -->
+
+            <div class="product-image">
+
+                {% if product.image %}
+
+                    <img
+                        src="{{ product.image.url }}"
+                        alt="{{ product.name }}"
+                    >
+
+                {% else %}
+
+                    <div style="
+                        font-size:100px;
+                    ">
+                        ⌚
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- Product Information -->
+
+            <div class="product-info">
+
+                <div class="product-brand">
+                    {{ product.brand }}
+                </div>
+
+                <h3>
+                    {{ product.name }}
+                </h3>
+
+                <div class="product-price">
+                    ₹{{ product.price }}
+                </div>
+
+
+                <div class="product-actions">
+
+                    <a
+                        href="{% url 'product_detail' product.id %}"
+                        class="buy-btn"
+                    >
+                        View Details
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <!-- No products -->
+
+        <div style="
+            grid-column:1/-1;
+            text-align:center;
+            padding:60px;
+        ">
+
+            <div style="
+                font-size:70px;
+                margin-bottom:20px;
+            ">
+                ⌚
+            </div>
+
+            <h2>No Watches Available</h2>
+
+            <p style="
+                color:#999;
+                margin-top:10px;
+            ">
+                Add watches from the Django admin panel.
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- VIEW ALL -->
+
+    <div style="
+        text-align:center;
+        margin-top:45px;
+    ">
+
+        <a
+            href="{% url 'watches' %}"
+            class="hero-btn"
+        >
+            View All Watches
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COLLECTION CATEGORIES
+===================================================== -->
+
+<section class="categories">
+
+    <div class="section-title">
+
+        <span>Find Your Style</span>
+
+        <h2>Explore Collections</h2>
+
+        <p>
+            A watch for every personality and every moment.
+        </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <!-- MEN -->
+
+        <a
+            href="{% url 'watches' %}"
+            class="category-card"
+        >
+
+            <h3>Men's Watches</h3>
+
+            <p>
+                Classic designs for modern men.
+            </p>
+
+        </a>
+
+
+        <!-- WOMEN -->
+
+        <a
+            href="{% url 'watches' %}"
+            class="category-card"
+        >
+
+            <h3>Women's Watches</h3>
+
+            <p>
+                Elegant timepieces made to impress.
+            </p>
+
+        </a>
+
+
+        <!-- SMART -->
+
+        <a
+            href="{% url 'watches' %}"
+            class="category-card"
+        >
+
+            <h3>Smart Watches</h3>
+
+            <p>
+                Technology meets modern style.
+            </p>
+
+        </a>
+
+
+        <!-- SPORTS -->
+
+        <a
+            href="{% url 'watches' %}"
+            class="category-card"
+        >
+
+            <h3>Sports Watches</h3>
+
+            <p>
+                Built for performance and adventure.
+            </p>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SPECIAL OFFER
+===================================================== -->
+
+<section class="offers-page">
+
+    <div class="special-offer">
+
+        <h2>
+            Special TimeZone Offer
+        </h2>
+
+        <p>
+            Upgrade your collection with premium watches
+            at exceptional prices.
+        </p>
+
+        <h3>
+            UP TO 40% OFF SELECTED WATCHES
+        </h3>
+
+        <a href="{% url 'offers' %}">
+            Explore Offers
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     BRANDS
+===================================================== -->
+
+<section>
+
+    <div class="section-title">
+
+        <span>Our Partners</span>
+
+        <h2>Popular Brands</h2>
+
+        <p>
+            Explore watches from some of the world's
+            most recognised brands.
+        </p>
+
+    </div>
+
+
+    <div class="brand-grid">
+
+        <div class="brand-card">
+            TITAN
+        </div>
+
+        <div class="brand-card">
+            CASIO
+        </div>
+
+        <div class="brand-card">
+            FASTRACK
+        </div>
+
+        <div class="brand-card">
+            TIMEX
+        </div>
+
+        <div class="brand-card">
+            SONATA
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY TIMEZONE
+===================================================== -->
+
+<section class="featured">
+
+    <div class="section-title">
+
+        <span>Why TimeZone</span>
+
+        <h2>More Than Just a Watch</h2>
+
+        <p>
+            We believe a watch is more than an accessory.
+            It represents your personality, ambition and style.
+        </p>
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <div class="category-card">
+
+            <h3>
+                Premium Quality
+            </h3>
+
+            <p>
+                Carefully selected watches designed
+                for quality and durability.
+            </p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <h3>
+                Secure Shopping
+            </h3>
+
+            <p>
+                A simple and secure shopping experience
+                from browsing to checkout.
+            </p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <h3>
+                Fast Delivery
+            </h3>
+
+            <p>
+                Get your favourite timepiece delivered
+                conveniently to your doorstep.
+            </p>
+
+        </div>
+
+
+        <div class="category-card">
+
+            <h3>
+                Customer Support
+            </h3>
+
+            <p>
+                We're here to help you choose
+                the perfect watch.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section>
+
+    <div class="special-offer">
+
+        <h2>
+            Find Your Perfect Timepiece
+        </h2>
+
+        <p>
+            Your next favourite watch is waiting.
+        </p>
+
+        <a href="{% url 'watches' %}">
+            Shop Watches
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

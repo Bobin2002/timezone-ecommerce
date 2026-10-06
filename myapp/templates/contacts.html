@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact - TimeZone{% endblock %}
+
+{% block content %}
+
+<section class="contact-page">
+
+    <div class="section-title">
+        <span>GET IN TOUCH</span>
+        <h2>Contact TimeZone</h2>
+        <p>
+            Have a question about our watches?
+            We would love to hear from you.
+        </p>
+    </div>
+
+
+    <div class="contact-container">
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">⌚</div>
+
+            <h2>Let's Talk</h2>
+
+            <p class="contact-description">
+                Whether you need help choosing a watch,
+                have a question about an order, or simply
+                want to know more about TimeZone, contact us.
+            </p>
+
+
+            <div class="contact-info">
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">📍</div>
+
+                    <div>
+                        <h3>Location</h3>
+                        <p>Kanyakumari, Tamil Nadu</p>
+                    </div>
+                </div>
+
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">📞</div>
+
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+91 XXXXX XXXXX</p>
+                    </div>
+                </div>
+
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon">✉</div>
+
+                    <div>
+                        <h3>Email</h3>
+                        <p>support@timezone.com</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT FORM -->
+
+        <div class="contact-card contact-form-card">
+
+            <h2>Send Us a Message</h2>
+
+            <p class="contact-description">
+                Fill in the form below and our team will
+                get back to you.
+            </p>
+
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                    <div class="form-error">{{ form.non_field_errors }}</div>
+                {% endif %}
+
+                <div class="contact-form-group">
+
+                    <label for="name">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value="{{ form.name.value|default:'' }}"
+                        placeholder="Enter your name"
+                        required
+                    >
+                    {% if form.name.errors %}<div class="form-error">{{ form.name.errors }}</div>{% endif %}
+
+                </div>
+
+
+                <div class="contact-form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value="{{ form.email.value|default:'' }}"
+                        placeholder="Enter your email"
+                        required
+                    >
+                    {% if form.email.errors %}<div class="form-error">{{ form.email.errors }}</div>{% endif %}
+
+                </div>
+
+
+                <div class="contact-form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value="{{ form.phone.value|default:'' }}"
+                        placeholder="Enter your phone number"
+                    >
+                    {% if form.phone.errors %}<div class="form-error">{{ form.phone.errors }}</div>{% endif %}
+
+                </div>
+
+
+                <div class="contact-form-group">
+
+                    <label for="message">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        placeholder="Write your message here..."
+                        required
+                    >{{ form.message.value|default:'' }}</textarea>
+                    {% if form.message.errors %}<div class="form-error">{{ form.message.errors }}</div>{% endif %}
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="contact-submit"
+                >
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

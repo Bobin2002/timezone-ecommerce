@@ -1,0 +1,38 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+db.sqlite3
+media/*
+!media/products/.gitkeep
+staticfiles/
+.idea/
+# Python
+__pycache__/
+*.py[cod]
+*.log
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# Django
+db.sqlite3
+staticfiles/
+
+# Uploaded media
+media/*
+!media/products/
+!media/products/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

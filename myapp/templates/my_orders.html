@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Orders - TimeZone
+{% endblock %}
+
+{% block content %}
+
+<section class="section">
+
+    <h1>My Orders</h1>
+
+    {% for order in orders %}
+
+        <div class="order-card">
+
+            <div class="order-head">
+
+                <div>
+                    <h3>Order #{{ order.id }}</h3>
+                    <p>{{ order.created_at|date:"d M Y, h:i A" }}</p>
+                </div>
+
+                <span class="order-status status-{{ order.status|lower }}">
+                    {{ order.status }}
+                </span>
+
+            </div>
+
+            {% for item in order.orderitem_set.all %}
+
+                <p class="order-line">
+                    {{ item.product.name }}
+                    × {{ item.quantity }}
+                    — ₹{{ item.total_price }}
+                </p>
+
+            {% endfor %}
+
+            <hr>
+
+            <p><strong>Total: ₹{{ order.total_amount }}</strong></p>
+
+            <p class="order-meta">
+                Deliver to: {{ order.address }}<br>
+                Phone: {{ order.phone }}
+            </p>
+
+        </div>
+
+    {% empty %}
+
+        <p>You haven't placed any orders yet.</p>
+
+        <a href="{% url 'watches' %}" class="btn">
+            Browse Watches
+        </a>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

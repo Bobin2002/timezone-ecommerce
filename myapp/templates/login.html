@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - TimeZone{% endblock %}
+
+{% block content %}
+
+<div class="auth-page">
+
+    <div class="auth-box">
+
+        <div class="auth-header">
+            <span>WELCOME BACK</span>
+            <h1>Login</h1>
+            <p>Sign in to continue shopping with TimeZone.</p>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <input type="hidden" name="next" value="{{ next }}">
+
+            <div class="form-group">
+
+                <label for="username">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="Enter your username"
+                    required
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+            </div>
+
+            <button type="submit" class="auth-button">
+                Login
+            </button>
+
+        </form>
+
+        <div class="auth-link">
+            Don't have an account?
+            <a href="{% url 'register' %}">Create Account</a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

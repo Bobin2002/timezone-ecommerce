@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Watches - TimeZone
+{% endblock %}
+
+{% block content %}
+
+<section class="section">
+
+    <h1>Our Watches</h1>
+
+    <div class="category-menu">
+
+        <a href="{% url 'watches' %}">
+            All Watches
+        </a>
+
+        {% for category in categories %}
+
+            <a href="?category={{ category.id }}">
+                {{ category.name }}
+            </a>
+
+        {% endfor %}
+
+    </div>
+
+
+    {% if selected_brand %}
+        <p>
+            Showing brand: <strong>{{ selected_brand }}</strong>
+            — <a href="{% url 'watches' %}">clear</a>
+        </p>
+    {% endif %}
+
+    <div class="product-grid">
+
+        {% for product in products %}
+
+        <div class="product-card">
+
+            {% if product.image %}
+
+                <img src="{{ product.image.url }}"
+                     alt="{{ product.name }}">
+
+            {% endif %}
+
+            <h3>
+                {{ product.name }}
+            </h3>
+
+            <p>
+                {{ product.brand }}
+            </p>
+
+            <h3>
+                ₹{{ product.price }}
+            </h3>
+
+            <a href="{% url 'product_detail' product.id %}"
+               class="btn">
+                View Details
+            </a>
+
+        </div>
+
+        {% empty %}
+
+            <p>No products found.</p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

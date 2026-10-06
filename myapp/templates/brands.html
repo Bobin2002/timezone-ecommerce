@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Brands - TimeZone{% endblock %}
+
+{% block content %}
+
+<section class="brands-page">
+
+    <div class="page-header">
+        <h1>Watch Brands</h1>
+        <p>Explore watches from the world's most popular brands</p>
+    </div>
+
+    <div class="brands-grid">
+
+        <div class="brand-card">
+            <div class="brand-logo">⌚</div>
+            <h2>Casio</h2>
+            <p>Reliable watches for everyday life.</p>
+            <a href="{% url 'watches' %}?brand=Casio">
+                View Watches
+            </a>
+        </div>
+
+        <div class="brand-card">
+            <div class="brand-logo">⌚</div>
+            <h2>Fossil</h2>
+            <p>Classic style with modern design.</p>
+            <a href="{% url 'watches' %}?brand=Fossil">
+                View Watches
+            </a>
+        </div>
+
+        <div class="brand-card">
+            <div class="brand-logo">⌚</div>
+            <h2>Titan</h2>
+            <p>Elegant watches for every occasion.</p>
+            <a href="{% url 'watches' %}?brand=Titan">
+                View Watches
+            </a>
+        </div>
+
+        <div class="brand-card">
+            <div class="brand-logo">⌚</div>
+            <h2>Sonata</h2>
+            <p>Affordable watches with great style.</p>
+            <a href="{% url 'watches' %}?brand=Sonata">
+                View Watches
+            </a>
+        </div>
+
+        <div class="brand-card">
+            <div class="brand-logo">⌚</div>
+            <h2>Timex</h2>
+            <p>Timeless designs built to last.</p>
+            <a href="{% url 'watches' %}?brand=Timex">
+                View Watches
+            </a>
+        </div>
+
+        <div class="brand-card">
+            <div class="brand-logo">⌚</div>
+            <h2>Fastrack</h2>
+            <p>Trendy watches for the modern generation.</p>
+            <a href="{% url 'watches' %}?brand=Fastrack">
+                View Watches
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

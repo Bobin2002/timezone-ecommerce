@@ -1,0 +1,2222 @@
+/* =========================================
+   TIMEZONE - WATCH E-COMMERCE WEBSITE
+   ========================================= */
+
+/* ---------- GOOGLE FONTS ---------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+
+/* ---------- BASIC RESET ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #080808;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.navbar {
+    width: 100%;
+    min-height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: #080808;
+
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    animation: navbarSlide 0.7s ease;
+}
+
+
+/* LOGO */
+
+.logo a {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #d4af37;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.logo a:hover {
+    color: #f4d675;
+
+    text-shadow:
+        0 0 10px rgba(212, 175, 55, 0.5),
+        0 0 25px rgba(212, 175, 55, 0.3);
+}
+
+
+/* NAVIGATION */
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.navbar nav a {
+    position: relative;
+
+    color: #dddddd;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #d4af37;
+}
+
+
+/* NAV UNDERLINE */
+
+.navbar nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: #d4af37;
+
+    transition: 0.3s;
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+}
+
+
+/* RIGHT NAV */
+
+.nav-right {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    font-size: 14px;
+}
+
+.nav-right a {
+    color: #dddddd;
+
+    transition: 0.3s;
+}
+
+.nav-right a:hover {
+    color: #d4af37;
+}
+
+.nav-right span {
+    color: #999999;
+}
+
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+
+.hero {
+    min-height: calc(100vh - 75px);
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 7%;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(212, 175, 55, 0.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(212, 175, 55, 0.08),
+            transparent 25%
+        ),
+        #080808;
+}
+
+
+/* GOLD CIRCLE */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -180px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(212, 175, 55, 0.15);
+
+    box-shadow:
+        0 0 80px rgba(212, 175, 55, 0.08),
+        inset 0 0 80px rgba(212, 175, 55, 0.04);
+
+    animation: rotateCircle 20s linear infinite;
+}
+
+
+/* HERO CONTENT */
+
+.hero-content {
+    width: 55%;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.hero-content span {
+    display: inline-block;
+
+    color: #d4af37;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 20px;
+
+    animation: fadeUp 0.8s ease;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(50px, 7vw, 90px);
+
+    line-height: 1.05;
+
+    color: #ffffff;
+
+    animation: titleAnimation 1s ease;
+}
+
+.hero-content h1 strong {
+    color: #d4af37;
+}
+
+.hero-content p {
+    max-width: 600px;
+
+    margin: 25px 0 35px;
+
+    color: #a8a8a8;
+
+    font-size: 17px;
+
+    animation: fadeUp 1s ease 0.2s both;
+}
+
+
+/* HERO BUTTONS */
+
+.hero-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    animation: fadeUp 1s ease 0.4s both;
+}
+
+.hero-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+
+    padding: 0 30px;
+
+    border-radius: 50px;
+
+    background: #d4af37;
+
+    color: #080808;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: 0.35s;
+}
+
+.hero-btn:hover {
+    background: #f4d675;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 30px rgba(212, 175, 55, 0.3);
+}
+
+
+/* SECOND BUTTON */
+
+.hero-btn.secondary {
+    background: transparent;
+
+    color: #ffffff;
+
+    border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.hero-btn.secondary:hover {
+    background: rgba(212, 175, 55, 0.1);
+
+    color: #d4af37;
+
+    border-color: #d4af37;
+}
+
+
+/* HERO IMAGE */
+
+.hero-image {
+    position: absolute;
+
+    right: 7%;
+
+    width: 38%;
+
+    max-width: 520px;
+
+    z-index: 2;
+
+    animation: watchFloat 5s ease-in-out infinite;
+}
+
+.hero-image img {
+    width: 100%;
+
+    filter:
+        drop-shadow(0 30px 40px rgba(0, 0, 0, 0.8))
+        drop-shadow(0 0 35px rgba(212, 175, 55, 0.15));
+}
+
+
+/* =========================================
+   GENERAL SECTION
+   ========================================= */
+
+section {
+    padding: 100px 6%;
+}
+
+
+/* SECTION TITLE */
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+.section-title span {
+    color: #d4af37;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+}
+
+.section-title h2 {
+    margin-top: 10px;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(35px, 5vw, 55px);
+
+    color: #ffffff;
+}
+
+.section-title p {
+    max-width: 650px;
+
+    margin: 15px auto;
+
+    color: #999999;
+}
+
+
+/* =========================================
+   FEATURED PRODUCTS
+   ========================================= */
+
+.featured {
+    background: #101010;
+}
+
+.products-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* PRODUCT CARD */
+
+.product-card {
+    background: #151515;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    overflow: hidden;
+
+    transition: 0.4s;
+
+    animation: cardUp 0.8s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-12px);
+
+    border-color: rgba(212, 175, 55, 0.5);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+
+/* PRODUCT IMAGE */
+
+.product-image {
+    height: 320px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background:
+        radial-gradient(
+            circle,
+            #292929,
+            #101010
+        );
+}
+
+.product-image img {
+    width: 85%;
+    height: 85%;
+
+    object-fit: contain;
+
+    transition: 0.7s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.12) rotate(2deg);
+}
+
+
+/* PRODUCT INFO */
+
+.product-info {
+    padding: 22px 5px 5px;
+}
+
+.product-brand {
+    color: #d4af37;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+.product-info h3 {
+    margin: 7px 0;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 23px;
+
+    color: #ffffff;
+}
+
+.product-price {
+    color: #ffffff;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+
+/* PRODUCT BUTTON */
+
+.product-actions {
+    margin-top: 18px;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.buy-btn {
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 45px;
+
+    border-radius: 30px;
+
+    background: #d4af37;
+
+    color: #080808;
+
+    font-weight: 700;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+.buy-btn:hover {
+    background: #f4d675;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   CATEGORY SECTION
+   ========================================= */
+
+.categories {
+    background: #080808;
+}
+
+.category-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.category-card {
+    min-height: 250px;
+
+    padding: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            to top,
+            #050505,
+            rgba(20, 20, 20, 0.5)
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    transition: 0.4s;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #d4af37;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.category-card h3 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 27px;
+
+    color: #ffffff;
+}
+
+.category-card p {
+    color: #999999;
+
+    font-size: 13px;
+
+    margin-top: 6px;
+}
+
+
+/* =========================================
+   OFFERS
+   ========================================= */
+
+.offers-page {
+    background: #101010;
+}
+
+.offers-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.offer-card {
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1c1c1c,
+            #0b0b0b
+        );
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(212, 175, 55, 0.15);
+
+    transition: 0.4s;
+}
+
+.offer-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #d4af37;
+}
+
+.offer-badge {
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    border-radius: 50px;
+
+    background: #d4af37;
+
+    color: #080808;
+
+    font-size: 12px;
+
+    font-weight: 800;
+}
+
+.offer-icon {
+    font-size: 50px;
+
+    margin: 25px 0;
+}
+
+.offer-card h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 30px;
+}
+
+.offer-card p {
+    color: #999999;
+
+    margin: 10px 0 25px;
+}
+
+.offer-card a {
+    color: #d4af37;
+
+    font-weight: 700;
+}
+
+
+/* SPECIAL OFFER */
+
+.special-offer {
+    max-width: 1200px;
+
+    margin: 70px auto 0;
+
+    padding: 70px 30px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212, 175, 55, 0.18),
+            transparent 60%
+        ),
+        #111111;
+
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.special-offer h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(35px, 5vw, 55px);
+}
+
+.special-offer p {
+    color: #999999;
+
+    margin: 15px 0;
+}
+
+.special-offer h3 {
+    color: #d4af37;
+
+    margin-bottom: 30px;
+}
+
+.special-offer a {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 50px;
+
+    padding: 0 28px;
+
+    border-radius: 50px;
+
+    background: #d4af37;
+
+    color: #080808;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.special-offer a:hover {
+    background: #f4d675;
+
+    transform: translateY(-4px);
+}
+
+
+/* =========================================
+   BRANDS
+   ========================================= */
+
+.brand-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 20px;
+}
+
+.brand-card {
+    min-height: 140px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: #121212;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    color: #ffffff;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 21px;
+
+    transition: 0.3s;
+}
+
+.brand-card:hover {
+    color: #d4af37;
+
+    border-color: #d4af37;
+
+    transform: translateY(-8px);
+}
+
+
+/* =========================================
+   PAGE HEADER
+   ========================================= */
+
+.page-header {
+    padding: 90px 6%;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212, 175, 55, 0.12),
+            transparent 50%
+        ),
+        #080808;
+}
+
+.page-header h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(45px, 6vw, 70px);
+}
+
+.page-header p {
+    color: #999999;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   CATEGORY FILTER
+   ========================================= */
+
+.category-list {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 50px;
+}
+
+.category-list a {
+    padding: 10px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 50px;
+
+    color: #cccccc;
+
+    transition: 0.3s;
+}
+
+.category-list a:hover {
+    background: #d4af37;
+
+    color: #080808;
+
+    border-color: #d4af37;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   PRODUCT DETAIL
+   ========================================= */
+
+.product-detail {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+.product-detail-image {
+    min-height: 500px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #121212;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.product-detail-image img {
+    width: 85%;
+
+    transition: 0.6s;
+}
+
+.product-detail-image:hover img {
+    transform: scale(1.08);
+}
+
+.product-detail-info .brand {
+    color: #d4af37;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+}
+
+.product-detail-info h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 50px;
+
+    margin: 10px 0;
+}
+
+.product-detail-info .price {
+    color: #d4af37;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    margin: 20px 0;
+}
+
+.product-detail-info p {
+    color: #999999;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   CART
+   ========================================= */
+
+.cart-container {
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.cart-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    background: #121212;
+
+    border-radius: 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cart-item img {
+    width: 90px;
+    height: 90px;
+
+    object-fit: contain;
+
+    background: #1b1b1b;
+
+    border-radius: 10px;
+}
+
+.cart-item h3 {
+    flex: 1;
+
+    font-family: 'Playfair Display', serif;
+}
+
+.cart-total {
+    margin-top: 30px;
+
+    padding: 30px;
+
+    background: #151515;
+
+    border-radius: 15px;
+
+    text-align: right;
+
+    border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.cart-total h2 {
+    color: #d4af37;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   LOGIN / REGISTER
+   ========================================= */
+
+.auth-container {
+    min-height: 75vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 20px;
+}
+
+.auth-box {
+    width: 100%;
+
+    max-width: 450px;
+
+    padding: 45px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #191919,
+            #0d0d0d
+        );
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(212, 175, 55, 0.2);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.auth-box h1 {
+    font-family: 'Playfair Display', serif;
+
+    text-align: center;
+
+    font-size: 40px;
+
+    margin-bottom: 30px;
+}
+
+
+/* FORM */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #cccccc;
+
+    font-size: 13px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    background: #0c0c0c;
+
+    color: #ffffff;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.08);
+}
+
+.auth-box button {
+    width: 100%;
+
+    border: none;
+
+    padding: 14px;
+
+    margin-top: 10px;
+
+    border-radius: 50px;
+
+    background: #d4af37;
+
+    color: #080808;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.auth-box button:hover {
+    background: #f4d675;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   CONTACT
+   ========================================= */
+
+.contact-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+}
+
+.contact-card {
+    padding: 40px;
+
+    background: #121212;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.contact-card h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 32px;
+
+    margin-bottom: 20px;
+}
+
+.contact-card p {
+    color: #999999;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================
+   MESSAGES
+   ========================================= */
+
+.messages {
+    position: fixed;
+
+    top: 95px;
+    right: 25px;
+
+    z-index: 2000;
+}
+
+.messages p {
+    padding: 14px 22px;
+
+    margin-bottom: 10px;
+
+    border-radius: 10px;
+
+    background: #d4af37;
+
+    color: #080808;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.5);
+
+    animation: messageIn 0.5s ease;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    padding: 70px 6% 30px;
+
+    background: #050505;
+
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+
+    text-align: center;
+}
+
+footer h3 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 32px;
+
+    color: #d4af37;
+
+    margin-bottom: 8px;
+}
+
+footer p {
+    color: #777777;
+
+    font-size: 14px;
+
+    margin: 5px 0;
+}
+
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes navbarSlide {
+
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes titleAnimation {
+
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes watchFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+}
+
+@keyframes rotateCircle {
+
+    from {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+
+}
+
+@keyframes cardUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes messageIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =========================================
+   PRODUCT CARD ANIMATION DELAY
+   ========================================= */
+
+.product-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.product-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.product-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.product-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.product-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.product-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+
+/* =========================================
+   RESPONSIVE - TABLET
+   ========================================= */
+
+@media (max-width: 1000px) {
+
+    .navbar {
+        padding: 0 3%;
+    }
+
+    .navbar nav {
+        gap: 15px;
+    }
+
+    .hero-content {
+        width: 60%;
+    }
+
+    .hero-image {
+        width: 40%;
+        right: 2%;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brand-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE - MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        min-height: auto;
+
+        padding: 18px 5%;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .navbar nav {
+        order: 3;
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+
+    .nav-right {
+        margin-left: auto;
+    }
+
+    .nav-right span {
+        display: none;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: auto;
+
+        padding: 70px 5%;
+
+        flex-direction: column;
+    }
+
+    .hero-content {
+        width: 100%;
+
+        text-align: center;
+
+        padding: 30px 0;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .hero-image {
+        position: relative;
+
+        width: 80%;
+
+        right: auto;
+
+        margin: 40px auto 0;
+    }
+
+
+    /* SECTIONS */
+
+    section {
+        padding: 70px 5%;
+    }
+
+
+    /* PRODUCTS */
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* CATEGORIES */
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* OFFERS */
+
+    .offers-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* BRANDS */
+
+    .brand-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* PRODUCT DETAIL */
+
+    .product-detail {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .product-detail-info h1 {
+        font-size: 40px;
+    }
+
+
+    /* CONTACT */
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* CART */
+
+    .cart-item {
+        flex-wrap: wrap;
+    }
+
+
+    /* LOGIN */
+
+    .auth-box {
+        padding: 30px 22px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 450px) {
+
+    .logo a {
+        font-size: 24px;
+    }
+
+    .nav-right {
+        gap: 8px;
+    }
+
+    .navbar nav {
+        font-size: 12px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .hero-content span {
+        font-size: 10px;
+
+        letter-spacing: 3px;
+    }
+
+    .hero-btn {
+        width: 100%;
+    }
+
+    .product-image {
+        height: 270px;
+    }
+
+    .brand-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .offer-card {
+        padding: 25px;
+    }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+
+}
+def register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+
+        if form.is_valid():
+
+            user = User.objects.create_user(
+                username=form.cleaned_data['username'],
+                email=form.cleaned_data['email'],
+                password=form.cleaned_data['password']
+            )
+
+            login(request, user)
+
+            return redirect('home')
+
+    else:
+        form = RegisterForm()
+
+    return render(
+        request,
+        'register.html',
+        {'form': form}
+    )
+
+/* =========================================
+   CONTACT PAGE - FIXED
+   ========================================= */
+
+.contact-page {
+    min-height: calc(100vh - 75px);
+
+    padding: 90px 6%;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(212, 175, 55, 0.08),
+            transparent 40%
+        ),
+        #080808;
+}
+
+
+/* CONTACT CONTAINER */
+
+.contact-container {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+}
+
+
+/* CONTACT CARD */
+
+.contact-card {
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #191919,
+            #0e0e0e
+        );
+
+    border: 1px solid rgba(212, 175, 55, 0.18);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45);
+
+    transition: 0.35s;
+
+    animation: contactCardIn 0.7s ease;
+}
+
+.contact-card:hover {
+    border-color: rgba(212, 175, 55, 0.45);
+
+    transform: translateY(-5px);
+}
+
+
+/* CONTACT ICON */
+
+.contact-icon {
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+
+    background: rgba(212, 175, 55, 0.1);
+
+    border: 1px solid rgba(212, 175, 55, 0.3);
+
+    font-size: 30px;
+}
+
+
+/* HEADINGS */
+
+.contact-card h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 34px;
+
+    color: #ffffff;
+
+    margin-bottom: 12px;
+}
+
+
+/* DESCRIPTION */
+
+.contact-description {
+    color: #999999;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   CONTACT INFORMATION
+   ========================================= */
+
+.contact-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+.contact-info-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 15px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-info-icon {
+    min-width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(212, 175, 55, 0.1);
+
+    color: #d4af37;
+
+    font-size: 20px;
+}
+
+.contact-info-item h3 {
+    color: #ffffff;
+
+    font-size: 14px;
+
+    margin-bottom: 3px;
+}
+
+.contact-info-item p {
+    color: #888888;
+
+    font-size: 13px;
+
+    margin: 0;
+}
+
+
+/* =========================================
+   CONTACT FORM
+   ========================================= */
+
+.contact-form-card h2 {
+    margin-bottom: 8px;
+}
+
+.contact-form-card .contact-description {
+    margin-bottom: 25px;
+}
+
+
+/* FORM GROUP */
+
+.contact-form-group {
+    margin-bottom: 18px;
+}
+
+
+/* LABEL */
+
+.contact-form-group label {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 8px;
+
+    color: #dddddd;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* INPUT + TEXTAREA */
+
+.contact-form-group input,
+.contact-form-group textarea {
+    display: block;
+
+    width: 100%;
+
+    border: 1px solid #333333;
+
+    border-radius: 10px;
+
+    background: #090909;
+
+    color: #ffffff;
+
+    outline: none;
+
+    font-size: 14px;
+
+    padding: 14px 16px;
+
+    transition: 0.3s;
+}
+
+
+/* INPUT HEIGHT */
+
+.contact-form-group input {
+    height: 50px;
+}
+
+
+/* TEXTAREA */
+
+.contact-form-group textarea {
+    min-height: 130px;
+
+    resize: vertical;
+
+    line-height: 1.5;
+}
+
+
+/* PLACEHOLDER */
+
+.contact-form-group input::placeholder,
+.contact-form-group textarea::placeholder {
+    color: #666666;
+}
+
+
+/* FOCUS */
+
+.contact-form-group input:focus,
+.contact-form-group textarea:focus {
+    border-color: #d4af37;
+
+    box-shadow:
+        0 0 0 3px rgba(212, 175, 55, 0.08);
+}
+
+
+/* SUBMIT BUTTON */
+
+.contact-submit {
+    width: 100%;
+
+    min-height: 52px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: #d4af37;
+
+    color: #080808;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.contact-submit:hover {
+    background: #f4d675;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(212, 175, 55, 0.25);
+}
+
+
+/* =========================================
+   CONTACT ANIMATION
+   ========================================= */
+
+@keyframes contactCardIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   CONTACT MOBILE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .contact-page {
+        padding: 70px 5%;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .contact-card {
+        padding: 28px 22px;
+    }
+
+    .contact-card h2 {
+        font-size: 29px;
+    }
+
+}
+
+
+
+/* =========================================
+   ADDITIONS (buttons, forms, orders)
+   Classes used in templates that had no styles
+   ========================================= */
+
+.btn {
+    display: inline-block;
+
+    padding: 12px 28px;
+
+    border: 1px solid #d4af37;
+    border-radius: 30px;
+
+    background: #d4af37;
+    color: #080808;
+
+    font-weight: 700;
+    font-size: 14px;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #f4d675;
+
+    transform: translateY(-2px);
+}
+
+.btn.buy {
+    background: transparent;
+    color: #d4af37;
+}
+
+.btn.buy:hover {
+    background: #d4af37;
+    color: #080808;
+}
+
+.inline-form {
+    display: inline-flex;
+
+    gap: 10px;
+
+    margin: 0;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    padding: 0;
+
+    color: #dddddd;
+    font: inherit;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.link-button:hover {
+    color: #d4af37;
+}
+
+.form-error {
+    color: #ff6b6b;
+
+    font-size: 13px;
+
+    margin-top: 6px;
+}
+
+.form-error ul {
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+}
+
+.section {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 60px 5%;
+}
+
+.category-menu {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    margin: 25px 0;
+}
+
+.product-grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+
+    gap: 25px;
+}
+
+.no-image {
+    padding: 80px 20px;
+
+    color: #777777;
+
+    text-align: center;
+}
+
+.order-card {
+    margin-bottom: 20px;
+    padding: 25px;
+
+    background: #121212;
+
+    border-radius: 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.order-head {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 15px;
+}
+
+.order-status {
+    padding: 5px 14px;
+
+    border-radius: 20px;
+
+    background: rgba(212, 175, 55, 0.15);
+    color: #d4af37;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.order-status.status-delivered {
+    background: rgba(80, 200, 120, 0.15);
+    color: #50c878;
+}
+
+.order-meta {
+    margin-top: 10px;
+
+    color: #999999;
+
+    font-size: 14px;
+}

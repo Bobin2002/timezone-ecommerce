@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - TimeZone{% endblock %}
+
+{% block content %}
+
+<div class="auth-page">
+
+    <div class="auth-box">
+
+        <div class="auth-header">
+            <span>TIMEZONE</span>
+            <h1>Create Account</h1>
+            <p>Join TimeZone and discover your perfect watch.</p>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="form-error">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            {% for field in form %}
+
+                <div class="form-group">
+
+                    <label for="{{ field.id_for_label }}">
+                        {{ field.label }}
+                    </label>
+
+                    {{ field }}
+
+                    {% if field.errors %}
+                        <div class="form-error">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+            {% endfor %}
+
+            <button type="submit" class="auth-button">
+                Create Account
+            </button>
+
+        </form>
+
+        <div class="auth-link">
+            Already have an account?
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %}Offers - TimeZone{% endblock %}
+
+{% block content %}
+
+<section class="offers-page">
+
+    <div class="offers-header">
+        <h1>Special Offers</h1>
+        <p>Get amazing watches at special prices</p>
+    </div>
+
+    <div class="offers-grid">
+
+        <div class="offer-card">
+            <div class="offer-badge">30% OFF</div>
+
+            <div class="offer-icon">⌚</div>
+
+            <h2>Men's Watches</h2>
+
+            <p>
+                Get up to 30% discount on selected men's watches.
+            </p>
+
+            <a href="{% url 'watches' %}">
+                Shop Now
+            </a>
+        </div>
+
+
+        <div class="offer-card">
+            <div class="offer-badge">25% OFF</div>
+
+            <div class="offer-icon">⌚</div>
+
+            <h2>Women's Watches</h2>
+
+            <p>
+                Discover stylish women's watches at special prices.
+            </p>
+
+            <a href="{% url 'watches' %}">
+                Shop Now
+            </a>
+        </div>
+
+
+        <div class="offer-card">
+            <div class="offer-badge">20% OFF</div>
+
+            <div class="offer-icon">⌚</div>
+
+            <h2>Smart Watches</h2>
+
+            <p>
+                Upgrade your lifestyle with our smart watch offers.
+            </p>
+
+            <a href="{% url 'watches' %}">
+                Shop Now
+            </a>
+        </div>
+
+
+        <div class="offer-card">
+            <div class="offer-badge">40% OFF</div>
+
+            <div class="offer-icon">⌚</div>
+
+            <h2>Sports Watches</h2>
+
+            <p>
+                Special discounts on selected sports watches.
+            </p>
+
+            <a href="{% url 'watches' %}">
+                Shop Now
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="special-offer">
+
+        <h2>Exclusive TimeZone Deal</h2>
+
+        <p>
+            Buy selected watches and enjoy exciting discounts.
+        </p>
+
+        <h3>Free Shipping on Orders Above ₹2,000</h3>
+
+        <a href="{% url 'watches' %}">
+            Explore Watches
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

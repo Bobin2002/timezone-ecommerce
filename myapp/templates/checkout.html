@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Checkout - TimeZone
+{% endblock %}
+
+{% block content %}
+
+<section class="checkout">
+
+    <div>
+
+        <h1>Checkout</h1>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit"
+                    class="btn">
+                Place Order
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="order-summary">
+
+        <h2>Order Summary</h2>
+
+        {% for item in items %}
+
+            <p>
+                {{ item.product.name }}
+                × {{ item.quantity }}
+                = ₹{{ item.total_price }}
+            </p>
+
+        {% endfor %}
+
+        <hr>
+
+        <h2>
+            Total: ₹{{ total }}
+        </h2>
+
+        <p>
+            Payment Method: Cash on Delivery
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}
